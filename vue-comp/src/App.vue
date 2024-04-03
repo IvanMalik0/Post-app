@@ -7,7 +7,7 @@ import { RouterLink, RouterView } from 'vue-router'
   <header>
     <nav>
       <RouterLink to="/" class="nav-link">Home</RouterLink>
-      <RouterLink to="/post-create" class="nav-link">Create a new post</RouterLink>
+      <RouterLink to="/post-create" class="nav-link">New post</RouterLink>
     </nav>
   </header>
 
