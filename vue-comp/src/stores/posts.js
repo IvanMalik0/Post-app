@@ -10,7 +10,7 @@ export const usePostsStore = defineStore('posts-store', {
           title: 'A great book!',
           body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae quasi praesentium, assumenda molestias est deleniti.',
           author: 'Joe Mama',
-          created_at: '11/06/2023',
+          created_at: '06/25/2023',
           is_saved: false
         },
         {
@@ -18,7 +18,7 @@ export const usePostsStore = defineStore('posts-store', {
           title: 'Cool book!',
           body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae quasi praesentium, assumenda molestias est deleniti.',
           author: 'Joe Mama',
-          created_at: '23/06/2023',
+          created_at: '06/12/2023',
           is_saved: false
         },
         {
@@ -26,7 +26,7 @@ export const usePostsStore = defineStore('posts-store', {
           title: 'Im bored!',
           body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae quasi praesentium, assumenda molestias est deleniti.',
           author: 'Joe Mama',
-          created_at: '30/06/2023',
+          created_at: '06/01/2023',
           is_saved: false
         },
         {
@@ -34,10 +34,29 @@ export const usePostsStore = defineStore('posts-store', {
           title: 'Coding FF',
           body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae quasi praesentium, assumenda molestias est deleniti.',
           author: 'Joe Mama',
-          created_at: '05/07/2023',
+          created_at: '06/05/2023',
           is_saved: false
         }
       ]
+    }
+  },
+  // computed
+  getters: {
+    sorted() {
+      return this.posts.sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
+    }
+  },
+  // methods
+  actions: {
+    addPost(post) {
+      this.posts.push({
+        id: this.posts.length + 1,
+        title: post.title,
+        body: post.body,
+        author: 'Someone from sometime',
+        created_at: new Date().toLocaleDateString(),
+        is_saved: false
+      })
     }
   }
 })
