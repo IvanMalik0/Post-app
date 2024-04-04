@@ -1,22 +1,36 @@
 <script setup>
+import { reactive, computed } from 'vue';
 import MyWrapper from '@/components/MyWrapper.vue'
+
+const newPost = reactive({
+    title: '',
+    body: ''
+})
+
+const isFormInvalid = computed(() => {
+    return newPost.title === '' || newPost.body === ''
+})
+
+const submitPost = () => {
+    
+}
 </script>
 
 
 <template>
     <MyWrapper>
-        <form>
+        <form @submit.prevent="submitPost">
             <h3>Create a new posts</h3>
             <div>
                 <label>Post Title</label>
-                <input type="text" />
+                <input type="text" v-model="newPost.title" />
             </div>
             <div>
                 <label>Post Body</label>
-                <textarea rows="7"></textarea>
+                <textarea rows="7" v-model="newPost.body"></textarea>
             </div>
             <div>
-                <button>Add</button>
+                <button :disabled="isFormInvalid">Add</button>
             </div>
         </form>
     </MyWrapper>
@@ -64,7 +78,12 @@ div {
             background: #2563eb;
         }
 
-     
+        &:disabled {
+            background: #eee;
+            cursor: not-allowed;
+            color: gray;
+        }
+
     }
 }
 </style>
