@@ -23,7 +23,7 @@ export const usePostsStore = defineStore('posts-store', {
         },
         {
           id: 3,
-          title: 'Im bored!',
+          title: 'Im fine, actually!)',
           body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae quasi praesentium, assumenda molestias est deleniti.',
           author: 'Joe Mama',
           created_at: '06/01/2023',
@@ -44,7 +44,11 @@ export const usePostsStore = defineStore('posts-store', {
   getters: {
     sorted() {
       return this.posts.sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
-    }
+    },
+    saved: (state) =>
+      state.posts
+        .filter((p) => p.is_saved)
+        .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
   },
   // methods
   actions: {
@@ -57,6 +61,13 @@ export const usePostsStore = defineStore('posts-store', {
         created_at: new Date().toLocaleDateString(),
         is_saved: false
       })
+    },
+    deletePost(id) {
+      this.posts = this.posts.filter((p) => p.id !== id)
+    },
+    savePost(id) {
+      const post = this.posts.find((p) => p.id === id)
+      post.is_saved = !post.is_saved
     }
   }
 })
