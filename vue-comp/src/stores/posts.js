@@ -37,7 +37,7 @@ export const usePostsStore = defineStore('posts-store', {
     },
     addPost(post) {
       const newPost = {
-        id: (this.posts.length + 1).toString(),
+        id: (Math.max(...this.posts.map(obj => obj.id)) + 1).toString(),
         title: post.title,
         body: post.body,
         author: 'Someone from sometime',

@@ -1,7 +1,7 @@
 {
   "posts": [
     {
-      "id": 1,
+      "id": "1",
       "title": "A great book!",
       "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae quasi praesentium, assumenda molestias est deleniti.",
       "author": "Joe Mama",
@@ -9,7 +9,7 @@
       "is_saved": false
     },
     {
-      "id": 2,
+      "id": "2",
       "title": "Cool book!",
       "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae quasi praesentium, assumenda molestias est deleniti.",
       "author": "Joe Mama",
@@ -17,19 +17,19 @@
       "is_saved": false
     },
     {
-      "id": 3,
-      "title": "Im fine, actually!)",
-      "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae quasi praesentium, assumenda molestias est deleniti.",
-      "author": "Joe Mama",
-      "created_at": "06/01/2023",
-      "is_saved": false
-    },
-    {
-      "id": 4,
+      "id": "4",
       "title": "Coding FF",
       "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae quasi praesentium, assumenda molestias est deleniti.",
       "author": "Joe Mama",
       "created_at": "06/05/2023",
+      "is_saved": false
+    },
+    {
+      "id": "5",
+      "title": "Meow-meow",
+      "body": "Woof-woof",
+      "author": "Someone from sometime",
+      "created_at": "06/04/2024",
       "is_saved": false
     }
   ]
