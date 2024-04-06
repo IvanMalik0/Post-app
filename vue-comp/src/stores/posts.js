@@ -37,7 +37,7 @@ export const usePostsStore = defineStore('posts-store', {
     },
     addPost(post) {
       const newPost = {
-        id: this.posts.length + 1,
+        id: (this.posts.length + 1).toString(),
         title: post.title,
         body: post.body,
         author: 'Someone from sometime',
