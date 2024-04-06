@@ -1,4 +1,5 @@
 import { defineStore } from 'pinia'
+const API = 'http://localhost:3000/posts'
 
 export const usePostsStore = defineStore('posts-store', {
   // Data
@@ -22,7 +23,7 @@ export const usePostsStore = defineStore('posts-store', {
   // methods
   actions: {
     getPosts() {
-      fetch('http://localhost:3000/posts')
+      fetch(API)
         .then((res) => res.json())
         .then((data) => {
           this.posts = data
@@ -45,7 +46,7 @@ export const usePostsStore = defineStore('posts-store', {
       }
       this.posts.push(newPost)
 
-      fetch('http://localhost:3000/posts', {
+      fetch(API, {
         method: 'POST',
         headers: { 'Content-type': 'application/json' },
         body: JSON.stringify(newPost)
@@ -54,7 +55,7 @@ export const usePostsStore = defineStore('posts-store', {
     deletePost(id) {
       this.posts = this.posts.filter((p) => p.id !== id)
 
-      fetch(`http://localhost:3000/posts/${id}`, {
+      fetch(API + `/${id}`, {
         method: 'DELETE'
       }).catch((err) => console.log(err))
     },
@@ -62,10 +63,10 @@ export const usePostsStore = defineStore('posts-store', {
       const post = this.posts.find((p) => p.id === id)
       post.is_saved = !post.is_saved
 
-      fetch(`http://localhost:3000/posts/${id}`, {
+      fetch(API + `/${id}`, {
         method: 'PATCH',
         headers: { 'Content-type': 'application/json' },
-        body: JSON.stringify({is_saved: post.is_saved})
+        body: JSON.stringify({ is_saved: post.is_saved })
       }).catch((err) => console.log(err))
     }
   }
