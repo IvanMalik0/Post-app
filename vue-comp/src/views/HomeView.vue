@@ -11,7 +11,6 @@ const postFilter = ref('all')
 
 const setPostFilter = () => {
   postFilter.value = postFilter.value === 'all' ? 'saved' : 'all'
-  
 }
 
 const displayText = computed(() => {

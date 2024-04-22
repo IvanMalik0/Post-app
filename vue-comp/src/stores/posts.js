@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia'
 const API = 'http://localhost:3000/posts'
+const options = { year: 'numeric', month: '2-digit', day: '2-digit' }
 
 export const usePostsStore = defineStore('posts-store', {
   // Data
@@ -37,11 +38,11 @@ export const usePostsStore = defineStore('posts-store', {
     },
     addPost(post) {
       const newPost = {
-        id: (Math.max(...this.posts.map(obj => obj.id)) + 1).toString(),
+        id: (Math.max(...this.posts.map((obj) => obj.id)) + 1).toString(),
         title: post.title,
         body: post.body,
         author: 'Someone from sometime',
-        created_at: new Date().toLocaleDateString(),
+        created_at: new Date().toLocaleDateString('en-US', options),
         is_saved: false
       }
       this.posts.push(newPost)
