@@ -6,7 +6,7 @@
       "body": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse, nesciunt.",
       "author": "Joe",
       "created_at": "04/11/2024",
-      "is_saved": false
+      "is_saved": true
     },
     {
       "id": "2",
@@ -22,7 +22,7 @@
       "body": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse, nesciunt.",
       "author": "Foe",
       "created_at": "04/09/2024",
-      "is_saved": false
+      "is_saved": true
     },
     {
       "id": "4",
@@ -30,14 +30,6 @@
       "body": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse, nesciunt.",
       "author": "Loe",
       "created_at": "03/23/2024",
-      "is_saved": false
-    },
-    {
-      "id": "5",
-      "title": "New post title",
-      "body": "New post body",
-      "author": "Someone from sometime",
-      "created_at": "04/22/2024",
       "is_saved": false
     }
   ]

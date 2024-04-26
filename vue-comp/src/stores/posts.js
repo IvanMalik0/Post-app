@@ -1,4 +1,5 @@
 import { defineStore } from 'pinia'
+import { ref } from 'vue'
 const API = 'http://localhost:3000/posts'
 const options = { year: 'numeric', month: '2-digit', day: '2-digit' }
 
@@ -8,7 +9,8 @@ export const usePostsStore = defineStore('posts-store', {
     return {
       posts: [],
       loading: true,
-      errMsg: ''
+      errMsg: '',
+      count: ref(0)
     }
   },
   // computed

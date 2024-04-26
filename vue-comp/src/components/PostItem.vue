@@ -1,6 +1,7 @@
 <script setup>
-import { usePostsStore } from '@/stores/posts';
-
+import { usePostsStore } from '@/stores/posts'
+import { onMounted } from 'vue'
+import { onBeforeUnmount } from 'vue'
 const postsStore = usePostsStore()
 
 defineProps({
@@ -10,6 +11,13 @@ defineProps({
     }
 })
 
+onMounted(() => {
+    postsStore.count++
+})
+
+onBeforeUnmount(() => {
+    postsStore.count--
+})
 </script>
 
 <template>

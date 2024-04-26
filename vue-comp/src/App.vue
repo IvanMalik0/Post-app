@@ -11,6 +11,7 @@ postsStore.getPosts()
     <nav>
       <RouterLink to="/" class="nav-link">Home</RouterLink>
       <RouterLink to="/post-create" class="nav-link">New post</RouterLink>
+      <span v-show="postsStore.count > 0">Posts on page: {{ postsStore.count }}</span>
     </nav>
   </header>
 
@@ -33,6 +34,11 @@ nav {
     &:hover {
       background: #60a5fa;
     }
+  }
+
+  span {
+    color: white;
+    float: right;
   }
 }
 </style>
