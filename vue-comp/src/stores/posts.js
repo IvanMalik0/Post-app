@@ -1,5 +1,4 @@
 import { defineStore } from 'pinia'
-import { ref } from 'vue'
 const API = 'http://localhost:3000/posts'
 const options = { year: 'numeric', month: '2-digit', day: '2-digit' }
 
@@ -10,7 +9,7 @@ export const usePostsStore = defineStore('posts-store', {
       posts: [],
       loading: true,
       errMsg: '',
-      count: ref(0)
+      count: 0
     }
   },
   // computed
@@ -30,6 +29,7 @@ export const usePostsStore = defineStore('posts-store', {
         .then((res) => res.json())
         .then((data) => {
           this.posts = data
+          this.count = data.length
           this.loading = false
         })
         .catch((err) => {
@@ -48,6 +48,7 @@ export const usePostsStore = defineStore('posts-store', {
         is_saved: false
       }
       this.posts.push(newPost)
+      this.count++
 
       fetch(API, {
         method: 'POST',
@@ -57,7 +58,7 @@ export const usePostsStore = defineStore('posts-store', {
     },
     deletePost(id) {
       this.posts = this.posts.filter((p) => p.id !== id)
-
+      this.count--
       fetch(API + `/${id}`, {
         method: 'DELETE'
       }).catch((err) => console.log(err))
